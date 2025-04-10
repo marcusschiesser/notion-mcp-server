@@ -8,7 +8,23 @@ This project implements an [MCP server](https://spec.modelcontextprotocol.io/) f
 
 ### Installation
 
-Add the following to your `.cursor/mcp.json` or `claude_desktop_config.json` (MacOS: `~/Library/Application\ Support/Claude/claude_desktop_config.json`)
+First you'll need your integration secret. Find it from your integration configuration tab:
+<img width="918" alt="retrieve-token" src="https://github.com/user-attachments/assets/67b44536-5333-49fa-809c-59581bf5370a" />
+
+Ensure relevant pages and databases are connected to your integration.
+
+Then you'll put the secret into this snippet by replacing `ntn_****` with it:
+`"{\"Authorization\": \"Bearer ntn_****\", \"Notion-Version\": \"2022-06-28\" }"`
+
+That's your `OPENAPI_MCP_HEADERS` - use it in one of the following steps:
+
+#### Automatic installation using mcp-config
+
+Just call `npx mcp-config notion` and enter the `OPENAPI_MCP_HEADERS` value.
+
+#### Manual installation
+
+Add the `OPENAPI_MCP_HEADERS` to your `.cursor/mcp.json` or `claude_desktop_config.json` (MacOS: `~/Library/Application\ Support/Claude/claude_desktop_config.json`)
 
 ```javascript
 {
@@ -23,11 +39,6 @@ Add the following to your `.cursor/mcp.json` or `claude_desktop_config.json` (Ma
   }
 }
 ```
-
-Don't forget to replace `ntn_****` with your integration secret. Find it from your integration configuration tab:
-<img width="918" alt="retrieve-token" src="https://github.com/user-attachments/assets/67b44536-5333-49fa-809c-59581bf5370a" />
-
-Ensure relevant pages and databases are connected to your integration.
 
 ### Examples
 
